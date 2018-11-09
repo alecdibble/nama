@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Namespaced Aliases, Supercharged",
   "main": "index.js",
   "preferGlobal": true,
@@ -38,7 +38,6 @@
     "nama": "bin/nama"
   },
   "homepage": "https://github.com/alecdibble/nama",
-  "man": "nama -h",
   "author": "Alec Dibble",
   "dependencies": {
     "minimist": "^1.2.0",
