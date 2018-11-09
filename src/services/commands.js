@@ -5,7 +5,7 @@ let noNameError = `Error: Please supply a valid command name.
 
 Example:
 
-  na create test test-alias 'cd ~/'
+  a create test test-alias ''cd ~/''
 
   - Will create an alias called test-alias in the test namespace
     that will change to the home directory

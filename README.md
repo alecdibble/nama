@@ -1,4 +1,4 @@
-# na
+# nama
 Namespaced Aliases, Supercharged
 
 ## About
@@ -8,19 +8,19 @@ An open-source command line utility to supercharge your aliases. Features includ
 ## Usage
 
 ```
-na
+a
   -Lists namepaces & shows info/help bar at top
 
-na create [namespace]
+a create [namespace]
   -Creates a namespace
 
-na create [namespace] [alias] [command]
+a create [namespace] [alias] [command]
   Sets a command in a namespace
 
-na [namespace]
+a [namespace]
   -Lists commands in namespace
   
-na [namespace] [alias]
+a [namespace] [alias]
   -Runs command
 ```
 

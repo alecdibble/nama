@@ -2,7 +2,7 @@ const fs = require('fs');
 const alert = require('./alert')
 const homeDir = require('os').homedir();
 
-const mainDir = homeDir +'/.na';
+const mainDir = homeDir +'/.nama';
 const indexFile = mainDir + '/.local_index';
 
 module.exports = {

@@ -1,8 +1,18 @@
 {
-  "name": "na",
+  "name": "nama",
   "version": "0.1.0",
   "description": "Namespaced Aliases, Supercharged",
   "main": "index.js",
+  "preferGlobal": true,
+  "keywords": [
+    "alias",
+    "aliases",
+    "namespace",
+    "autocomplete",
+    "javascript",
+    "node",
+    "cli"
+  ],
   "engines": {
     "node": ">=8.0"
   },
@@ -11,7 +21,7 @@
     "postinstall": "bin/install"
   },
   "bin": {
-    "na": "bin/na"
+    "nama": "bin/nama"
   },
   "author": "Alec Dibble",
   "dependencies": {

@@ -6,7 +6,7 @@ let createError = `Error: Please supply a valid namespace.
 
 Example:
 
-  na create test
+  a create test
 
   - Will create a namespace with the name 'test'
 `;
