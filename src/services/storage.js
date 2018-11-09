@@ -1,4 +1,5 @@
 const fs = require('fs');
+const alert = require('./alert')
 const homeDir = require('os').homedir();
 
 const mainDir = homeDir +'/.na';
@@ -21,14 +22,14 @@ module.exports = {
       rawData = fs.readFileSync(indexFile);
     }
     catch(e) {
-      return console.log("Error reading file");
+      return alert("Error reading file");
     }
 
     try{
       return JSON.parse(rawData);
     }
     catch(e) {
-      return console.log("Error parsing file");
+      return alert("Error parsing file");
     }
   },
 
@@ -37,7 +38,7 @@ module.exports = {
       return fs.writeFileSync(indexFile, JSON.stringify(index));
     }
     catch(e) {
-      return console.log('Error writing file');
+      return alert('Error writing file');
     }
   }
 }

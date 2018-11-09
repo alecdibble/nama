@@ -1,8 +1,6 @@
-# na
-Namespaced Aliases, Supercharged
+const alert = require('./alert')
 
-
-```
+let topLevelHelp = `
 na
   -Lists namepaces & shows info/help bar at top
 
@@ -17,4 +15,9 @@ na [namespace]
   
 na [namespace] [alias]
   -Runs command
-```
+`;
+
+module.exports = (args) => {
+  return alert(topLevelHelp);
+
+}

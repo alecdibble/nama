@@ -1,4 +1,5 @@
 const acc = require('./accessors');
+const alert = require('./alert')
 
 let createError = `Error: Please supply a valid namespace.
 
@@ -12,14 +13,14 @@ Example:
 module.exports = { 
   create: (args) => {
     if(args._.length < 2) {
-      return console.error(createError);
+      return alert(createError);
     }
 
     let namespace = args._[1]
 
     let currentNamespaces = acc.getNamespaces()
     if(namespace in currentNamespaces) {
-      return console.error(`Error: ${namespace} namespace already exists`);
+      return alert(`Error: ${namespace} namespace already exists`);
     }
 
     acc.writeNamespace(namespace)
@@ -27,7 +28,7 @@ module.exports = {
 
   list: (args) => {
     let currentNamespaces = acc.getNamespaces()
-    return currentNamespaces.length ? console.log(currentNamespaces.join('\n')) : console.error('Error: No namespaces have been created')
+    return currentNamespaces.length ? alert(currentNamespaces.join('\n')) : alert('Error: No namespaces have been created')
   },
 
   lookup: (args) => {

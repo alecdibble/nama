@@ -2,6 +2,10 @@ const minimist = require('minimist')
 const storage = require('./services/storage')
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
+const alert = require('./services/alert')
+const help = require('./services/help')
+
+const { version } = require('../package.json')
 
 module.exports = () => {
 
@@ -21,10 +25,23 @@ module.exports = () => {
 
   switch (cmd) {
     case 'create':
-      namespaces.create(args)
+      if(args._.length == 1) {
+          namespaces.create(args)
+        } else {
+          commands.create(args)
+        }
       break
+
     case 'base':
-      return namespaces.list(args)
+      namespaces.list(args)
+      break
+
+    case 'version': 
+      alert(`v${version}`)
+      break
+
+    case 'help':
+      help(args)
       break
 
     default:
@@ -36,7 +53,7 @@ module.exports = () => {
         }
       }
       else {
-        console.error(`"${cmd}" is not a valid command!`)
+        alert(`"${cmd}" is not a valid command!`)
       }
       break
   }

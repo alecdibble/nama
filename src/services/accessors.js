@@ -1,4 +1,5 @@
 const storage = require('./storage');
+const alert = require('./alert')
 
 
 module.exports = {
@@ -15,14 +16,24 @@ module.exports = {
 
   getCommands: (namespace) => {
     let index = storage.getFile()
-    return index[namespace]
+    return Object.keys(index[namespace])
+  },
+
+  getCommand: (namespace, name) => {
+    let index = storage.getFile()
+
+    let namespaceArray = index[namespace]
+    
+
+    if(!(name in namespaceArray)) {
+      return false
+    }
+    return namespaceArray[name]
   },
 
   writeCommand: (namespace, name, command) => {
     let index = storage.getFile()
-  },
-
-  runCommand: (namespace, name) => {
-    let index = storage.getFile()
+    index[namespace][name] = command
+    storage.writeFile(index)
   },
 }

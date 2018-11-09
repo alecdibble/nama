@@ -1,2 +1,4 @@
-#!/usr/bin/env node
-require('../src/')()
+#!/bin/sh
+
+node_output=`node ./bin/na_script "$@"`
+eval "$node_output"
