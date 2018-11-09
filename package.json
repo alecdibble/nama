@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Namespaced Aliases, Supercharged",
   "main": "index.js",
   "preferGlobal": true,
@@ -13,22 +13,18 @@
     "node",
     "cli"
   ],
-  "bugs": { 
-    "url" : "https://github.com/alecdibble/nama/issues",
-    "email" : "alec@alecdibble.com"
+  "bugs": {
+    "url": "https://github.com/alecdibble/nama/issues",
+    "email": "alec@alecdibble.com"
   },
   "license": "GPL-3.0-only",
   "engines": {
     "node": ">=8.0"
   },
-  "author": {
-    "name" : "Alec Dibble",
-    "email" : "alec@alecdibble.com",
-    "url" : "https://alecdibble.com/"
-  },
+  "author": "Alec Dibble",
   "repository": {
-    "type" : "git",
-    "url" : "https://github.com/alecdibble/nama.git"
+    "type": "git",
+    "url": "https://github.com/alecdibble/nama.git"
   },
   "scripts": {
     "start": "node src/index.js",
@@ -38,7 +34,6 @@
     "nama": "bin/nama"
   },
   "homepage": "https://github.com/alecdibble/nama",
-  "author": "Alec Dibble",
   "dependencies": {
     "minimist": "^1.2.0",
     "tabtab": "^3.0.2"
