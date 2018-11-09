@@ -9,3 +9,12 @@ then
 fi
 
 source ~/.bashrc 
+echo ""
+echo "\x1b[1m======================\x1b[0m"
+echo "\x1b[1mInstallation Complete!\x1b[0m"
+echo "\x1b[1m======================\x1b[0m"
+echo ""
+echo "\x1b[31mALERT:\x1b[0m Please run the following command to enable autocompletion:"
+echo "      \x1b[4m\x1b[1msource ~/.bashrc\x1b[0m"
+echo ""
+echo ""
