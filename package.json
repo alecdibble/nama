@@ -1,0 +1,19 @@
+{
+  "name": "na",
+  "version": "0.1.0",
+  "description": "Namespaced Aliases, Supercharged",
+  "main": "index.js",
+  "engines": {
+    "node": ">=8.0"
+  },
+  "scripts": {
+    "start": "node src/index.js"
+  },
+  "bin": {
+    "na": "bin/na"
+  },
+  "author": "Alec Dibble",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  }
+}
