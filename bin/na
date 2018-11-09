@@ -1,10 +1,18 @@
 #!/bin/sh
 
+SOURCE="${BASH_SOURCE[0]}"
+while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symlink
+  DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null && pwd )"
+  SOURCE="$(readlink "$SOURCE")"
+  [[ $SOURCE != /* ]] && SOURCE="$DIR/$SOURCE" # if $SOURCE was a relative symlink, we need to resolve it relative to the path where the symlink file was located
+done
+DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null && pwd )"
+
 if [[ $1 == 'completion' ]]
 then
-    node ./bin/na_script "$@"
+    node $DIR/na_script "$@"
 else
-  node_output=`node ./bin/na_script "$@"`
+  node_output=`node $DIR/na_script "$@"`
   eval "$node_output"
 fi
 

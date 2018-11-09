@@ -1,5 +1,6 @@
-const acc = require('./accessors');
+const acc = require('./accessors')
 const alert = require('./alert')
+const commands = require('./commands')
 
 let createError = `Error: Please supply a valid namespace.
 
@@ -28,7 +29,29 @@ module.exports = {
 
   list: (args) => {
     let currentNamespaces = acc.getNamespaces()
-    return currentNamespaces.length ? alert(currentNamespaces.join('\n')) : alert('Error: No namespaces have been created')
+
+    if(currentNamespaces.length < 1) {
+      return alert('Error: No namespaces have been created')
+    }
+
+    alert('\n  NAMESPACES')
+    alert('  --------')
+
+    namespaceString = currentNamespaces.map(key => '  ' + key).filter(v => v).join('\n');
+    return alert(namespaceString + '\n')
+  },
+
+  listAll: (args) => {
+    let currentNamespaces = acc.getNamespaces()
+
+    if(currentNamespaces.length < 1) {
+      return alert('Error: No namespaces have been created')
+    }
+
+    for(var i in currentNamespaces) {
+      commands.list(args, currentNamespaces[i])
+    }
+    
   },
 
   lookup: (args) => {

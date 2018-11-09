@@ -1,5 +1,10 @@
 module.exports = { 
-  processForAutoComplete: (array) =>{
-    return array.map(function(e) {return 'echo ' + e});
-  }
+  sortObject: (unordered) =>{
+    let ordered = {}
+    Object.keys(unordered).sort().forEach((key) => {
+      ordered[key] = unordered[key]
+    })
+    return ordered
+  },
+
 }

@@ -4,7 +4,8 @@ node src/install.js
 
 if [ -z "$BASH_EXPORTED" ]
 then
-  echo  'export BASH_EXPORTED=TRUE' >> ~/.bashrc 
+  echo  'export BASH_EXPORTED=TRUE' >> ~/.bashrc
+  echo  'alias na=". na"' >> ~/.bashrc  
 fi
 
 source ~/.bashrc 
