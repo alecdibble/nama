@@ -10,9 +10,9 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null && pwd )"
 
 if [[ $1 == 'completion' ]]
 then
-    node $DIR/na_script "$@"
+    node $DIR/nama_script "$@"
 else
-  node_output=`node $DIR/na_script "$@"`
+  node_output=`node $DIR/nama_script "$@"`
   eval "$node_output"
 fi
 
