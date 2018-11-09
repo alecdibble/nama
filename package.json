@@ -7,13 +7,15 @@
     "node": ">=8.0"
   },
   "scripts": {
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "postinstall": "bin/install"
   },
   "bin": {
     "na": "bin/na"
   },
   "author": "Alec Dibble",
   "dependencies": {
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.0",
+    "tabtab": "^3.0.2"
   }
 }

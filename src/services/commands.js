@@ -1,4 +1,4 @@
-const acc = require('./accessors');
+const acc = require('./accessors')
 const alert = require('./alert')
 
 let noNameError = `Error: Please supply a valid command name.
@@ -29,7 +29,13 @@ module.exports = {
   list: (args) => {
     let namespace = args._[0]
     let currentCommands = acc.getCommands(namespace)
-    return currentCommands ? alert(currentCommands.join('\n')) : alert(`Error: No commands have been created for namespace: ${namespace} `)
+    
+    if(currentCommands < 1) { 
+      return alert(`Error: No commands have been created for namespace: ${namespace} `)
+    }
+    alert(`Aliases for ${namespace} namespace: \n`) 
+    commandString = Object.keys(currentCommands).map(key => '  ' + key.padEnd(12) + '   ' + currentCommands[key]).filter(v => v).join(', ');
+    return alert(commandString) 
   },
 
   run: (args) => {
@@ -39,6 +45,6 @@ module.exports = {
     if(!currentCommand) {
       return alert(commandDoesntExistError)
     }
-    return console.log(currentCommand)
+    return alert(currentCommand, 'run')
   },
 }

@@ -1,17 +1,26 @@
 const minimist = require('minimist')
+
+
 const storage = require('./services/storage')
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
 const alert = require('./services/alert')
 const help = require('./services/help')
+const tabcomplete = require('./services/tabcomplete')
 
 const { version } = require('../package.json')
 
 module.exports = () => {
 
+  if(!process.env.BASH_EXPORTED) {
+    alert('source ~/.bashrc', 'run')
+  }
+
   storage.init();
 
   const args = minimist(process.argv.slice(2))
+
+  // alert(args, 'json')
 
   let cmd = args._[0] || 'base'
 
@@ -42,6 +51,10 @@ module.exports = () => {
 
     case 'help':
       help(args)
+      break
+
+    case 'completion':
+      return tabcomplete(args)
       break
 
     default:

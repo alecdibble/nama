@@ -1,0 +1,10 @@
+#!/bin/sh
+
+node src/install.js
+
+if [ -z "$BASH_EXPORTED" ]
+then
+  echo  'export BASH_EXPORTED=TRUE' >> ~/.bashrc 
+fi
+
+source ~/.bashrc 

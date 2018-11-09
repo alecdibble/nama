@@ -14,9 +14,14 @@ module.exports = {
     storage.writeFile(index)
   },
 
-  getCommands: (namespace) => {
+  getNames: (namespace) => {
     let index = storage.getFile()
     return Object.keys(index[namespace])
+  },
+
+  getCommands: (namespace) => {
+    let index = storage.getFile()
+    return index[namespace]
   },
 
   getCommand: (namespace, name) => {

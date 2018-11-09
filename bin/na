@@ -1,4 +1,10 @@
 #!/bin/sh
 
-node_output=`node ./bin/na_script "$@"`
-eval "$node_output"
+if [[ $1 == 'completion' ]]
+then
+    node ./bin/na_script "$@"
+else
+  node_output=`node ./bin/na_script "$@"`
+  eval "$node_output"
+fi
+
