@@ -4,18 +4,44 @@ node src/install.js
 
 if [ -z "$BASH_EXPORTED" ]
 then
-  if [ -f ~/.bashrc ]; then . ~/.bashrc; fi 
+  if [ -f ~/.bashrc ] 
+  then 
+    . ~/.bashrc 
+  fi 
+
+  echo  '' >> ~/.bashrc
+  echo  '##########################' >> ~/.bashrc
+  echo  '# Installed by nama ######' >> ~/.bashrc
+  echo  '##########################' >> ~/.bashrc
+  echo  '' >> ~/.bashrc
   echo  'export BASH_EXPORTED=TRUE' >> ~/.bashrc
   echo  'alias a=". nama"' >> ~/.bashrc  
-fi
+  echo  '' >> ~/.bashrc
+  echo  '##########################' >> ~/.bashrc
+  echo  '# Delete to uninstall ####' >> ~/.bashrc
+  echo  '##########################' >> ~/.bashrc
+  echo  '' >> ~/.bashrc
 
-if [[ "$OSTYPE" == "darwin"* ]]
-then
-  if [ -f ~/.bash_profile ]; then . ~/.bash_profile ; fi 
-  source ~/.bashrc >> ~/.bash_profile 
+  if [[ "$OSTYPE" == "darwin"* ]]
+  then
+    if [ -f ~/.bash_profile ] 
+    then 
+      . ~/.bash_profile 
+    fi
+    echo  '' >> ~/.bash_profile 
+    echo  '##########################' >> ~/.bash_profile 
+    echo  '# Installed by nama ######' >> ~/.bash_profile 
+    echo  '##########################' >> ~/.bash_profile 
+    echo  '' >> ~/.bash_profile 
+    echo  'source ~/.bashrc' >> ~/.bash_profile 
+    echo  '' >> ~/.bash_profile 
+    echo  '##########################' >> ~/.bash_profile 
+    echo  '# Installed by nama ######' >> ~/.bash_profile 
+    echo  '##########################' >> ~/.bash_profile 
+    echo  '' >> ~/.bash_profile 
+  fi
 fi
-
-source ~/.bashrc 
+ 
 echo ""
 echo "\x1b[1m======================\x1b[0m"
 echo "\x1b[1mInstallation Complete!\x1b[0m"

@@ -49,3 +49,10 @@ a [namespace] [alias]
 ### Protected namespaces
 
   Current, you cannot use the namespace `completion` due to the mechanics of the autocompletion script. 
+
+## ChangeLog
+
+| Date | Version | Change Description |
+| --- | --- | -- |
+| 11/9/2018 | 0.2.2 | Added removal feature, updated installation script |
+| 11/8/2018 | 0.1.0 | Initial release |
