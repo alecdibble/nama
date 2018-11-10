@@ -42,4 +42,11 @@ module.exports = {
     index[namespace] = utilities.sortObject(index[namespace])
     storage.writeFile(index)
   },
+
+  deleteCommand: (namespace, name) => {
+    let index = storage.getFile()
+    delete index[namespace][name]
+    storage.writeFile(index)
+    return alert('Command deleted.')
+  }
 }

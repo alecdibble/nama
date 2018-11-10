@@ -1,7 +1,7 @@
 const acc = require('./accessors')
 const alert = require('./alert')
 
-let noNameError = `Error: Please supply a valid command name.
+let noNameError = `\x1b[31mError\x1b[0m: Please supply a valid command name.
 
 Example:
 
@@ -11,7 +11,16 @@ Example:
     that will change to the home directory
 `;
 
-let commandDoesntExistError = `Error: Supplied command doesn't exist`;
+let noNameDeleteError = `\x1b[31mError\x1b[0m: Please supply a valid command name for deletion.
+
+Example:
+
+  a rm test test-alias
+
+  - Will delete an alias called test-alias in the test namespace
+`;
+
+let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't exist`;
 
 module.exports = { 
   create: (args) => {
@@ -24,6 +33,21 @@ module.exports = {
     let command = args._[3]
 
     acc.writeCommand(namespace, name, command)
+  },
+
+  delete: (args) => {
+    if(args._.length < 3 || args._.length > 3) {
+      return alert(noNameDeleteError)
+    }
+
+    let namespace = args._[1]
+    let name = args._[2]
+    if(getCommand(namespace, name)) {
+      acc.deleteCommand(namespace, name)
+    }
+    else {
+      alert(`\x1b[31mERROR: Command not found in ${namespace}`)
+    }
   },
 
   list: (args, namespace) => {

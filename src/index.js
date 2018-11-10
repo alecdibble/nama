@@ -34,7 +34,7 @@ module.exports = () => {
     cmd = 'help'
   }
 
-  if (args.c) {
+  if (args.c || args.create) {
     cmd = 'create'
   }
 
@@ -46,6 +46,11 @@ module.exports = () => {
         } else {
           commands.create(args)
         }
+      break
+
+    case 'rm':
+    case 'delete':
+      commands.delete(args)
       break
 
     case 'base':

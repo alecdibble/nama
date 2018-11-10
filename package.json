@@ -1,7 +1,7 @@
 {
   "name": "nama",
-  "version": "0.1.6",
-  "description": "Namespaced Aliases, Supercharged",
+  "version": "0.2.1",
+  "description": "Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing",
   "main": "index.js",
   "preferGlobal": true,
   "keywords": [
