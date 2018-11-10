@@ -5,6 +5,16 @@ Namespaced Aliases, Supercharged
 
 An open-source command line utility to supercharge your aliases. Features include alias namespacing & tab autocomplete. By having easy access to all of your aliases, you can speed up your development or devOps workflow. 
 
+## Installation
+
+```
+npm install -g nama
+source ~/.bashrc
+```
+
+Also, make sure your shell sources ~/.bashrc whenever a new window terminal opens.
+
+
 ## Usage
 
 ```

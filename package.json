@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Namespaced Aliases, Supercharged",
   "main": "index.js",
   "preferGlobal": true,
