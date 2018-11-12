@@ -15,7 +15,7 @@ a c [namespace] [alias] [command]<-Enclosed in quotes
 a create [namespace] [alias] [command]<-Enclosed in quotes
   -Sets a command in a namespace
   -Ex:
-    a c utils go_home ''cd ~/''
+    a c utils go_home 'cd ~/'
 
 a rm [namespace] [alias]
 a delete [namespace] [alias]

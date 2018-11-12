@@ -13,6 +13,11 @@ module.exports = () =>{
       tabtab.log(namespaces)
       break
 
+    case "ad":
+      commands = acc.getNames('Default')
+      return tabtab.log(commands)
+      return
+
     default:
       if(env.words == 1) {
         namespaces = acc.getNamespaces()
