@@ -12,12 +12,7 @@ Example:
 `;
 
 module.exports = { 
-  create: (args) => {
-    if(args._.length < 2) {
-      return alert(createError);
-    }
-
-    let namespace = args._[1]
+  create: (namespace) => {
 
     let currentNamespaces = acc.getNamespaces()
     if(namespace in currentNamespaces) {
@@ -27,7 +22,7 @@ module.exports = {
     acc.writeNamespace(namespace)
   },
 
-  list: (args) => {
+  list: () => {
     let currentNamespaces = acc.getNamespaces()
 
     if(currentNamespaces.length < 1) {
@@ -41,7 +36,7 @@ module.exports = {
     return alert(namespaceString + '\n')
   },
 
-  listAll: (args) => {
+  listAll: () => {
     let currentNamespaces = acc.getNamespaces()
 
     if(currentNamespaces.length < 1) {
@@ -49,13 +44,12 @@ module.exports = {
     }
 
     for(var i in currentNamespaces) {
-      commands.list(args, currentNamespaces[i])
+      commands.list(currentNamespaces[i])
     }
     
   },
 
-  lookup: (args) => {
-    let namespace = args._[0]
+  lookup: (namespace) => {
     let currentNamespaces = acc.getNamespaces()
     if(currentNamespaces.includes(namespace)) {
       return true

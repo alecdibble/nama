@@ -9,9 +9,9 @@ module.exports = {
   init: () => {
     if (!fs.existsSync(mainDir)) {
       fs.mkdirSync(mainDir, 0744);
-      if (!fs.existsSync(indexFile)) {
-        fs.writeFileSync(indexFile, JSON.stringify({}));
-      }
+    }
+    if (!fs.existsSync(indexFile)) {
+      fs.writeFileSync(indexFile, JSON.stringify({}));
     }
   },
 

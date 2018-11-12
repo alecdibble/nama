@@ -5,7 +5,7 @@ let noNameError = `\x1b[31mError\x1b[0m: Please supply a valid command name.
 
 Example:
 
-  a create test test-alias ''cd ~/''
+  a create test test-alias 'cd ~/'
 
   - Will create an alias called test-alias in the test namespace
     that will change to the home directory
@@ -23,37 +23,21 @@ Example:
 let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't exist`;
 
 module.exports = { 
-  create: (args) => {
-    if(args._.length < 4) {
-      return alert(noNameError)
-    }
-
-    let namespace = args._[1]
-    let name = args._[2]
-    let command = args._[3]
-
+  create: (namespace, name, command) => {
     acc.writeCommand(namespace, name, command)
   },
 
   delete: (args) => {
-    if(args._.length < 3 || args._.length > 3) {
-      return alert(noNameDeleteError)
-    }
 
-    let namespace = args._[1]
-    let name = args._[2]
     if(getCommand(namespace, name)) {
       acc.deleteCommand(namespace, name)
     }
     else {
-      alert(`\x1b[31mERROR: Command not found in ${namespace}`)
+      alert(`\x1b[31mERROR\x1b[0m: Command not found in ${namespace}`)
     }
   },
 
-  list: (args, namespace) => {
-    if(!namespace) {
-      namespace = args._[0]
-    }
+  list: (namespace) => {
 
     let currentCommands = acc.getCommands(namespace)
 
@@ -68,9 +52,7 @@ module.exports = {
     return alert(commandString + '\n') 
   },
 
-  run: (args) => {
-    let namespace = args._[0]
-    let name = args._[1]
+  run: (namespace, name) => { 
     let currentCommand = acc.getCommand(namespace, name)
     if(!currentCommand) {
       return alert(commandDoesntExistError)
