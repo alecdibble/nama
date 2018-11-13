@@ -1,8 +1,5 @@
 const minimist = require('minimist')
 
-//TODO: Check if na-sync is executable, if so, use that for storage instead
-const storage = require('./services/storage')
-
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
 const defaultNamespace = require('./services/default')
@@ -17,8 +14,6 @@ module.exports = () => {
   if(!process.env.BASH_EXPORTED) {
     return('ERROR: Bashrc not properly sourced. Please re-run.')
   }
-
-  storage.init()
 
   const args = minimist(process.argv.slice(2))
 

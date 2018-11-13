@@ -11,7 +11,7 @@ module.exports = {
   writeNamespace: (namespace) => {
     let index = storage.getFile()
     index[namespace] = {}
-    storage.writeFile(utilities.sortObject(index))
+    storage.updateFile(utilities.sortObject(index))
   },
 
   getNames: (namespace) => {
@@ -40,13 +40,13 @@ module.exports = {
     let index = storage.getFile()
     index[namespace][name] = command
     index[namespace] = utilities.sortObject(index[namespace])
-    storage.writeFile(index)
+    storage.updateFile(index)
   },
 
   deleteCommand: (namespace, name) => {
     let index = storage.getFile()
     delete index[namespace][name]
-    storage.writeFile(index)
+    storage.updateFile(index)
     return alert('Command deleted.')
   }
 }
