@@ -54,6 +54,7 @@ a [namespace] [alias]
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 11/14/2018| 0.4.0 | Refactor to utilize sqlite |
 | 11/11/2018| 0.3.0 | Added default shortcut, refactor |
 | 11/9/2018 | 0.2.2 | Added removal feature, updated installation script |
 | 11/8/2018 | 0.1.0 | Initial release |
