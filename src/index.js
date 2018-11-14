@@ -67,12 +67,12 @@ module.exports = () => {
       break
 
     case 'default':
-      if(args._[0] == 'completion') {
-        tabcomplete('Default')
-        break
-      }
       if(!namespaces.lookup('Default')) {
         namespaces.create('Default')
+        break
+      }
+      if(args._[0] == 'completion') {
+        tabcomplete('Default')
         break
       }
       if(args._.length == 0) {

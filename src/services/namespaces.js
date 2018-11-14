@@ -45,7 +45,7 @@ module.exports = {
 
   lookup: (namespace) => {
     let currentNamespaces = db.getNamespace(namespace)
-    if(currentNamespaces.namespace == namespace) {
+    if(currentNamespaces && currentNamespaces.namespace == namespace) {
       return true
     }
     return false
