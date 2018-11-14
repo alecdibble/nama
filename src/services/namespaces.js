@@ -1,4 +1,4 @@
-const acc = require('./accessors')
+const db = require('./db')
 const alert = require('./alert')
 const commands = require('./commands')
 
@@ -12,46 +12,40 @@ Example:
 `;
 
 module.exports = { 
-  create: (namespace) => {
-
-    let currentNamespaces = acc.getNamespaces()
-    if(namespace in currentNamespaces) {
-      return alert(`Error: ${namespace} namespace already exists`);
-    }
-
-    acc.writeNamespace(namespace)
+  create: (namespace, description) => {
+    db.updateNamespace(namespace, description)
+    module.exports.list()
   },
 
   list: () => {
-    let currentNamespaces = acc.getNamespaces()
+    let currentNamespaces = db.getAllNamespaces()
 
-    if(currentNamespaces.length < 1) {
+    if(currentNamespaces == undefined || currentNamespaces.length < 1) {
       return alert('Error: No namespaces have been created')
     }
 
-    alert('\n  NAMESPACES')
-    alert('  --------')
+    alert('\x1b[4mNamespaces\x1b[0m')
 
-    namespaceString = currentNamespaces.map(key => '  ' + key).filter(v => v).join('\n');
+    namespaceString = currentNamespaces.map(n => n.description ? '  ' + n.namespace.padEnd(10) + "  \x1b[2m"+ n.description + "\x1b[0m" : '  ' + n.namespace).filter(v => v).join('\n');
     return alert(namespaceString + '\n')
   },
 
   listAll: () => {
-    let currentNamespaces = acc.getNamespaces()
+    let currentNamespaces = db.getAllNamespaces()
 
-    if(currentNamespaces.length < 1) {
+    if(currentNamespaces == undefined || currentNamespaces.length < 1) {
       return alert('Error: No namespaces have been created')
     }
 
     for(var i in currentNamespaces) {
-      commands.list(currentNamespaces[i])
+      commands.list(currentNamespaces[i].namespace)
     }
     
   },
 
   lookup: (namespace) => {
-    let currentNamespaces = acc.getNamespaces()
-    if(currentNamespaces.includes(namespace)) {
+    let currentNamespaces = db.getNamespace(namespace)
+    if(currentNamespaces && currentNamespaces.namespace == namespace) {
       return true
     }
     return false
