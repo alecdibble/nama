@@ -16,7 +16,7 @@ then
   echo  '' >> ~/.bashrc
   echo  'export BASH_EXPORTED=TRUE' >> ~/.bashrc
   echo  'alias a=". nama"' >> ~/.bashrc
-  echo  'alias ad=". nama --default true"' >> ~/.bashrc  
+  echo  'alias ad=". nama --default_namespace true"' >> ~/.bashrc  
   echo  '' >> ~/.bashrc
   echo  '##########################' >> ~/.bashrc
   echo  '# Delete to uninstall ####' >> ~/.bashrc

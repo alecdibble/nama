@@ -1,7 +1,7 @@
 const tabtab = require('tabtab')
 const alert = require('./alert')
 const utilities = require('./utilities')
-const acc = require('./accessors')
+const db = require('./db')
 
 
 module.exports = () =>{
@@ -9,22 +9,26 @@ module.exports = () =>{
 
   switch(env.prev) {
     case "create":
-      namespaces = acc.getNamespaces()
+      namespaces = db.getAllNamespaces()
+      //Add code to turn into array of names
       tabtab.log(namespaces)
       break
 
     case "ad":
-      commands = acc.getNames('Default')
+      commands = db.getCommands('Default')
+      // Add code to turn into array of command names
       return tabtab.log(commands)
       return
 
     default:
       if(env.words == 1) {
-        namespaces = acc.getNamespaces()
+        namespaces = db.getAllNamespaces()
+        //Add code to turn into array of names
         return tabtab.log(namespaces)
       }
       if(env.words == 2) {
-        commands = acc.getNames(env.prev)
+        commands = db.getCommands(env.prev)
+        // Add code to turn into array of command names
         return tabtab.log(commands)
       }
   }

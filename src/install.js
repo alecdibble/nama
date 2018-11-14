@@ -1,5 +1,9 @@
 const tabtab = require('tabtab')
+const storage = require('./services/storage')
+storage.init()
+
 const db = require('./services/db')
+
 
 console.log("Installing autcompletion script for main program: ")
 tabtab.install({
