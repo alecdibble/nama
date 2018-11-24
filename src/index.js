@@ -2,7 +2,6 @@ const minimist = require('minimist')
 
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
-const defaultNamespace = require('./services/default')
 const alert = require('./services/alert')
 const help = require('./services/help')
 const tabcomplete = require('./services/tabcomplete')

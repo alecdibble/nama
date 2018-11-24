@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing",
   "main": "index.js",
   "preferGlobal": true,
@@ -37,6 +37,6 @@
   "dependencies": {
     "better-sqlite3": "5.0.1",
     "minimist": "1.2.0",
-    "tabtab": "3.0.2"
+    "tabtabtab": "^0.2.13"
   }
 }
