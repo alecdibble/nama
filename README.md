@@ -54,6 +54,7 @@ a [namespace] [alias]
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 11/27/2018| 0.5.1 | Fixed issue with remove command |
 | 11/23/2018| 0.5.0 | Updated to use the [tabtabtab](https://www.github.com/alecdibble/tabtabtab) autocompletion library |
 | 11/14/2018| 0.4.0 | Refactor to utilize sqlite |
 | 11/11/2018| 0.3.0 | Added default shortcut, refactor |

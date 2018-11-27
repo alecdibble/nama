@@ -27,7 +27,7 @@ module.exports = {
     db.updateCommand(namespace, name, command, description)
   },
 
-  delete: (args) => {
+  delete: (namespace, name) => {
 
     if(db.getCommand(namespace, name)) {
       db.removeCommand(namespace, name)
