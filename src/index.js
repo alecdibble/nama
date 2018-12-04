@@ -10,9 +10,9 @@ const { version } = require('../package.json')
 
 module.exports = () => {
 
-  if(!process.env.BASH_EXPORTED) {
-    return('ERROR: Bashrc not properly sourced. Please re-run.')
-  }
+  // if(!process.env.BASH_EXPORTED) {
+  //   return('ERROR: Bashrc not properly sourced. Please re-run.')
+  // }
 
   const args = minimist(process.argv.slice(2))
 

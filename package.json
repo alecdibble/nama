@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.5.3",
+  "version": "0.5.8",
   "description": "Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing",
   "main": "index.js",
   "preferGlobal": true,
@@ -31,12 +31,14 @@
     "postinstall": "bin/install"
   },
   "bin": {
-    "nama": "bin/nama"
+    "nama": "bin/nama",
+    "a": "bin/nama",
+    "ad": "bin/nama_default"
   },
   "homepage": "https://github.com/alecdibble/nama",
   "dependencies": {
     "better-sqlite3": "5.0.1",
     "minimist": "1.2.0",
-    "tabtabtab": "^0.2.13"
+    "tabtabtab": "^0.2.14"
   }
 }

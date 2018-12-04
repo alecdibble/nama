@@ -1,3 +1,5 @@
+![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png?raw=true "Nama")
+
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
 
@@ -54,6 +56,7 @@ a [namespace] [alias]
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 12/4/2018| 0.5.6 | Changed the way in which commands were referenced globally |
 | 12/4/2018| 0.5.3 | Fixed dependency issues |
 | 11/27/2018| 0.5.1 | Fixed issue with remove command |
 | 11/23/2018| 0.5.0 | Updated to use the [tabtabtab](https://www.github.com/alecdibble/tabtabtab) autocompletion library |
