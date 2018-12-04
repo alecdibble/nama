@@ -19,6 +19,10 @@ module.exports = {
     db.prepare('INSERT OR REPLACE INTO namespaces (namespace, description) VALUES(?, ?)').run(namespace, description)
   },
 
+  deleteNamespace: (namespace) => {
+    db.prepare('DELETE FROM namespaces WHERE namespace = ?').run(namespace)
+  },
+
   getAllNamespaces: () => {
     const query = db.prepare('select namespace, description from namespaces').all()
     return query

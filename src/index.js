@@ -53,7 +53,15 @@ module.exports = () => {
 
     case 'rm':
     case 'delete':
+      if(!args._[2]) {
+        namespaces.delete(args._[1])
+      }
+      else if(args._[2]) {
       commands.delete(args._[1], args._[2])
+      }
+      else {
+        alert("Wrong number of arguments supplied")
+      }
       break
 
     case 'base':

@@ -17,6 +17,11 @@ module.exports = {
     module.exports.list()
   },
 
+  delete: (namespace) => {
+    db.deleteNamespace(namespace)
+    alert(namespace + ' namespace has been deleted')
+  },
+
   list: () => {
     let currentNamespaces = db.getAllNamespaces()
 
