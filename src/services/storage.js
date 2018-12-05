@@ -8,10 +8,10 @@ const mainDir = configDir +'/nama';
 module.exports = {
   init: () => {
     if (!fs.existsSync(configDir)) {
-      fs.mkdirSync(configDir, 0744);
+      fs.mkdirSync(configDir, 0755);
     }
     if (!fs.existsSync(mainDir)) {
-      fs.mkdirSync(mainDir, 0744);
+      fs.mkdirSync(mainDir, 0755);
     }
   }
 }
