@@ -1,4 +1,4 @@
-![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png "Nama")
+![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png "Nama" | width=184)
 
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
@@ -37,7 +37,7 @@ source ~/.bashrc
 
 ## Usage
 
-![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage" | width=184)
+![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage")
 
 ```
 a
