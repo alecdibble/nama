@@ -13,12 +13,24 @@ Currently only supports the bash shell. Other shells are going to be tested & im
 
 ## Installation
 
+### Installing using NPM
+
 ```
 npm install -g nama
 source ~/.bashrc
 ```
 
-Also, make sure your shell sources ~/.bashrc whenever a new window terminal opens.
+If you run into permissions errors, please run this command:
+
+```
+sudo npm install -g nama --unsafe-perm=true
+```
+
+Also, make sure your shell sources `~/.bashrc` whenever a new window terminal opens. If you are running MacOS, make sure the following line is in your `~/.profile` file:
+
+```
+source ~/.bashrc
+```
 
 
 ## Usage
