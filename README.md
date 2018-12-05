@@ -37,6 +37,8 @@ source ~/.bashrc
 
 ## Usage
 
+![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage")
+
 ```
 a
   -Lists namepaces & shows info/help bar at top
