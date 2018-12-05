@@ -23,8 +23,10 @@ source ~/.bashrc
 If you run into permissions errors, please run this command:
 
 ```
-sudo npm install -g nama --unsafe-perm=true
+npm install -g nama --unsafe-perm=true
 ```
+
+If that still gives permissions issues, especially to on Ubuntu, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
 
 Also, make sure your shell sources `~/.bashrc` whenever a new window terminal opens. If you are running MacOS, make sure the following line is in your `~/.profile` file:
 
