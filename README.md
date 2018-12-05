@@ -37,7 +37,7 @@ source ~/.bashrc
 
 ## Usage
 
-![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage")
+![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage" | width=184)
 
 ```
 a
