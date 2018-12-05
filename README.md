@@ -1,4 +1,4 @@
-![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png "Nama" | width=184)
+<img src="https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png" width="200">
 
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
