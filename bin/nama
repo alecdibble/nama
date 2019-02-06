@@ -29,7 +29,7 @@ then
       echo " "
     else
       concat_var=""
-      for file in $cachePath+'*'
+      for file in $cachePath*
       do
         concat_var+=" $(basename "$file")"
       done
