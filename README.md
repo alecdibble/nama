@@ -72,6 +72,7 @@ a [namespace] [alias]
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 2/5/2019| 0.6.0 | Sped up autocomplete functionality significantly |
 | 12/4/2018| 0.5.6 | Changed the way in which commands were referenced globally |
 | 12/4/2018| 0.5.3 | Fixed dependency issues |
 | 11/27/2018| 0.5.1 | Fixed issue with remove command |

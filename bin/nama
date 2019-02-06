@@ -8,9 +8,33 @@ while [ -h "$SOURCE" ]; do # resolve $SOURCE until the file is no longer a symli
 done
 DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null && pwd )"
 
+
+previous=''
+cachePath=~/.config/nama/cache/
+#TODO: check if there are 2 arguments, if so, it is a command, so run it without needing Node
+
 if [[ $1 == 'completion' || $2 == 'completion' || $3 == 'completion' ]]
 then
-    node $DIR/nama_script "$@"
+    if [ $# -eq 5 ]
+    then
+      source "$cachePath$4"
+      concat_var=""
+      for var in "${!_nama_command_@}"; do
+        sub1=${var:14}
+        concat_var+=" ${sub1%:*}"
+        compgen -W "${concat_var}" $5
+      done
+    elif [ $# -eq 6 ]
+    then
+      echo " "
+    else
+      concat_var=""
+      for file in $cachePath+'*'
+      do
+        concat_var+=" $(basename "$file")"
+      done
+      compgen -W "${concat_var}" $4
+    fi
 else
   node_output=`node $DIR/nama_script "$@"`
   eval "$node_output"

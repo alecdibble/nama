@@ -1,5 +1,6 @@
 const db = require('./db')
 const alert = require('./alert')
+const cache = require('./cache')
 
 let noNameError = `\x1b[31mError\x1b[0m: Please supply a valid command name.
 
@@ -25,12 +26,14 @@ let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't ex
 module.exports = { 
   create: (namespace, name, command, description) => {
     db.updateCommand(namespace, name, command, description)
+    cache.cacheWrite()
   },
 
   delete: (namespace, name) => {
 
     if(db.getCommand(namespace, name)) {
       db.removeCommand(namespace, name)
+      cache.cacheWrite()
     }
     else {
       alert(`\x1b[31mERROR\x1b[0m: Command not found in ${namespace}`)
