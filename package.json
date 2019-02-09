@@ -1,6 +1,6 @@
 {
   "name": "nama",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing",
   "main": "index.js",
   "preferGlobal": true,
@@ -27,13 +27,13 @@
     "url": "https://github.com/alecdibble/nama.git"
   },
   "scripts": {
-    "start": "node src/index.js",
-    "postinstall": "bin/install"
+    "start": "node src/index.js"
   },
   "bin": {
     "nama": "bin/nama",
     "a": "bin/nama",
-    "ad": "bin/nama_default"
+    "ad": "bin/nama_default",
+    "nama-install": "bin/install"
   },
   "homepage": "https://github.com/alecdibble/nama",
   "dependencies": {

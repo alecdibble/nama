@@ -17,6 +17,7 @@ Currently only supports the bash shell. Other shells are going to be tested & im
 
 ```
 npm install -g nama
+nama-install
 source ~/.bashrc
 ```
 
@@ -28,16 +29,46 @@ npm install -g nama --unsafe-perm=true
 
 If that still gives permissions issues, especially to on Ubuntu, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
 
-Also, make sure your shell sources `~/.bashrc` whenever a new window terminal opens. If you are running MacOS, make sure the following line is in your `~/.profile` file:
+### Installing on MacOS
+
+Also, make sure your shell sources `~/.bashrc` whenever a new window terminal opens. If you are running MacOS, make sure the following line is in your `~/.bash_profile` file:
 
 ```
-source ~/.bashrc
+[ -r ~/.bashrc ] && . ~/.bashrc
+```
+
+You can easily add it by running this command:
+
+```
+echo '[ -r ~/.bashrc ] && . ~/.bashrc' >> ~/.bash_profile
 ```
 
 
 ## Usage
 
 ![Name - Namespaced Aliases](https://raw.githubusercontent.com/alecdibble/nama/master/docs/gif1.gif "Nama Usage")
+
+### List all namespaces
+
+`a`
+
+### Create & deleting namespaces
+
+To create a namespace:
+`a c [namespace-name]` or `a create [namespace-name]`
+
+To delete an existing namespace:
+`a rm [namespace-name]` or `a delete [namespace-name]`
+
+### Creating a new alias in a namespace
+
+`a c [namespace] [alias] [command]` or `a create [namespace] [alias] [command]`
+
+### Running an alias
+
+`a [namespace] [alias]`
+
+### Reference
 
 ```
 a
@@ -72,6 +103,7 @@ a [namespace] [alias]
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 2/8/2019| 0.6.2 | Changed the way installation works |
 | 2/6/2019| 0.6.1 | Fixed small bug introduced during the merge |
 | 2/5/2019| 0.6.0 | Sped up autocomplete functionality significantly |
 | 12/4/2018| 0.5.6 | Changed the way in which commands were referenced globally |
