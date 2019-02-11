@@ -3,6 +3,8 @@
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
 
+[![](https://tokei.rs/b1/github/alecdibble/nama)](https://github.com/alecdibble/nama).
+
 ## About
 
 An open-source command line utility to supercharge your aliases. Features include alias namespacing & tab autocomplete. By having easy access to all of your aliases, you can speed up your development or devOps workflow. 
@@ -27,7 +29,18 @@ If you run into permissions errors, please run this command:
 npm install -g nama --unsafe-perm=true
 ```
 
-If that still gives permissions issues, especially to on Ubuntu, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
+If that still gives permissions issues, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
+
+## Installing on Ubuntu
+
+```
+sudo apt-get install build-essential
+npm install -g nama
+nama-install
+source ~/.bashrc
+```
+
+If you run into permissions issues, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
 
 ### Installing on MacOS
 

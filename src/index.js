@@ -2,6 +2,7 @@ const minimist = require('minimist')
 
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
+const sync = require('./services/syncHelper')
 const alert = require('./services/alert')
 const help = require('./services/help')
 const tabcomplete = require('./services/tabcomplete')
@@ -39,6 +40,7 @@ module.exports = () => {
 
   if(args.d || args.description) {
     description = args.d || args.description
+    alert(args.d)
   }
 
   switch (cmd) {
@@ -67,6 +69,9 @@ module.exports = () => {
     case 'base':
       if(args.a) {
         namespaces.listAll()
+      }
+      if(args.s) {
+        sync.serializeForSync()
       }
       else {
         namespaces.list()
