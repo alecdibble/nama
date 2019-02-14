@@ -2,15 +2,18 @@ const minimist = require('minimist')
 
 const sync = require('./services/syncHelper')
 const db = require('./services/db')
+const cache = require('./services/cache')
+const alert = require('./services/alert')
 
 module.exports = () => {
   const args = minimist(process.argv.slice(2));
 
   if(args.d) {
-    db.deserializeOverwriteDB(args._[0])
+    sync.deserializeDb(args.d)
+    cache.cacheWrite()
     return console.log("Sync update successful!")
   }
   if(args.s) {
-    return console.log(JSON.stringify(db.serializeDB()))
+    return sync.serializeForSync()
   }
 }

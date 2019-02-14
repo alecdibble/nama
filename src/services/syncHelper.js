@@ -9,22 +9,22 @@ module.exports = {
   },
   serializeForSync: () => {
     db.storeSyncLog()
-    return console.log(JSON.stringify(db.serializeDB()))
+    return console.log(Buffer.from(JSON.stringify(db.serializeDB())).toString('base64'))
   },
-  deserializeDB: (schema) => {
+  deserializeDb: (schema) => {
     db.storeSyncLog()
+    db.deserializeOverwriteDB(JSON.parse(Buffer.from(schema, 'base64').toString()))
+    return
   },
-  syncAddNamespace: (namespace, description = '') => {
-    if(description == null) {
-      description = ''
-    }
+  syncSendChanges: () => {
     if(shell.which('nama-sync')) {
-      shell.exec('nama-sync namespace add ' + namespace + ' "' + description + '"' , {silent:true}, function(code, stdout, stderr) {
+      shell.exec('nama-sync schemaMerge ' + Buffer.from(JSON.stringify(db.serializeDB())).toString('base64') , {silent:true}, function(code, stdout, stderr) {
         if(code == 0) {
           // alert('Program output: ' + stdout);
           db.storeSyncLog()
-          return alert('Sync sucessful')
+          return alert('Sync sucessful!')
         }
+        return alert(stderr)
         return alert('Error with sync!')
       });
     }
@@ -41,19 +41,7 @@ module.exports = {
       });
     }
   },
-  syncAddCommand: (namespace, commandName, command, updated_at, description = '') => {
-    if(shell.which('nama-sync')) {
-      shell.exec('nama-sync command add ' + namespace + ' ' + commandName + ' ' + command + ' ' + updated_at + ' "' + description + '"' , {silent:true}, function(code, stdout, stderr) {
-        if(code == 0) {
-          alert('Program output: ' + stdout);
-          db.storeSyncLog()
-          return alert('Sync sucessful')
-        }
-        return alert('Error with sync!')
-      });
-    }
-  },
-  syncRemoveCommand: () => {
+  syncRemoveCommand: (namespace, commandName) => {
     if(shell.which('nama-sync')) {
       shell.exec('nama-sync command remove ' + namespace + ' ' + commandName, {silent:true}, function(code, stdout, stderr) {
         if(code == 0) {

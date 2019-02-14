@@ -15,8 +15,8 @@ Example:
 module.exports = { 
   create: (namespace, description) => {
     db.updateNamespace(namespace, description)
+    syncHelper.syncSendChanges();
     module.exports.list()
-    syncHelper.syncAddNamespace(namespace, description);
   },
 
   delete: (namespace) => {

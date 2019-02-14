@@ -34,7 +34,7 @@ module.exports = {
   },
 
   getCommands: (namespace) => {
-    return db.prepare('select name, command, description from commands where namespace = ?').all(namespace)
+    return db.prepare('select name, command, description, updated_at from commands where namespace = ?').all(namespace)
   },
 
   getCommand: (namespace, name) => {
@@ -42,9 +42,9 @@ module.exports = {
   },
 
   //Handle create/update
-  updateCommand: (namespace, name, command, description) => {
+  updateCommand: (namespace, name, command, description, updated_at = moment().unix()) => {
     alert(description)
-    const query = db.prepare('INSERT OR REPLACE INTO commands (namespace, name, command, description, updated_at) VALUES(?, ?, ?, ?, ?)').run(namespace, name, command, description, moment().unix())
+    const query = db.prepare('INSERT OR REPLACE INTO commands (namespace, name, command, description, updated_at) VALUES(?, ?, ?, ?, ?)').run(namespace, name, command, description, updated_at)
     return module.exports.getCommand(namespace, name)
   },
 
@@ -66,7 +66,15 @@ module.exports = {
     return dataObject
   },
   deserializeOverwriteDB: (schema) => {
-    throw new Error('Not implemented yet!')
+    db.prepare('DELETE FROM commands').run()
+    db.prepare('DELETE FROM namespaces').run()
+    for (var i in schema) {
+      module.exports.updateNamespace(schema[i]['namespace'], schema[i]['description'])
+      for(var j in schema[i]['commands']) {
+        const command = schema[i]['commands'][j];
+        module.exports.updateCommand(schema[i]['namespace'], command['name'], command['command'], command['description'], command['updated_at'])
+      }
+    }
   },
   storeSyncLog: () => {
     const query = db.prepare('INSERT OR REPLACE INTO sync (id, synced, synced_datetime) VALUES(?, ?, ?)').run(1, 1, moment().unix())

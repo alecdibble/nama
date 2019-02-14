@@ -70,7 +70,7 @@ module.exports = () => {
       if(args.a) {
         namespaces.listAll()
       }
-      if(args.s) {
+      else if(args.s) {
         sync.serializeForSync()
       }
       else {

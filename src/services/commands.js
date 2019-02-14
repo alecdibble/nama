@@ -27,7 +27,7 @@ let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't ex
 module.exports = { 
   create: (namespace, name, command, description) => {
     let cmd = db.updateCommand(namespace, name, command, description)
-    sync.syncAddCommand(namespace, cmd.name, cmd.command, cmd.updated_at, cmd.description)
+    sync.syncSendChanges()
     cache.cacheWrite()
   },
 
