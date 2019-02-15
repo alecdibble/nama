@@ -40,7 +40,6 @@ module.exports = () => {
 
   if(args.d || args.description) {
     description = args.d || args.description
-    alert(args.d)
   }
 
   switch (cmd) {
@@ -128,6 +127,7 @@ module.exports = () => {
         alert(`"${cmd}" is not a valid command!`)
       }
   }
+  sync.syncStatus()
 }
 
 

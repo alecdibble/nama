@@ -16,4 +16,10 @@ module.exports = () => {
   if(args.s) {
     return sync.serializeForSync()
   }
+  if(args.t) {
+    if(args.t == true) {
+      return console.log(db.getSyncStatus()['synced_datetime'])
+    }
+    return db.storeSyncLog(args.t)
+  }
 }

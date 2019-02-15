@@ -1,6 +1,7 @@
 const db = require('./db')
 const alert = require('./alert')
 const commands = require('./commands')
+const cache = require('./cache')
 const syncHelper = require('./syncHelper')
 
 let createError = `Error: Please supply a valid namespace.
@@ -14,14 +15,19 @@ Example:
 
 module.exports = { 
   create: (namespace, description) => {
+    if(db.getNamespace(namespace) && !description) {
+      return alert('Error: '+namespace+' already exists')
+    }
     db.updateNamespace(namespace, description)
     syncHelper.syncSendChanges();
+    cache.cacheWrite()
     module.exports.list()
   },
 
   delete: (namespace) => {
     db.deleteNamespace(namespace)
     alert(namespace + ' namespace has been deleted')
+    cache.cacheWrite()
     syncHelper.syncRemoveNamespace(namespace);
   },
 

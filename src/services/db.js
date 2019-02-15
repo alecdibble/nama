@@ -43,7 +43,6 @@ module.exports = {
 
   //Handle create/update
   updateCommand: (namespace, name, command, description, updated_at = moment().unix()) => {
-    alert(description)
     const query = db.prepare('INSERT OR REPLACE INTO commands (namespace, name, command, description, updated_at) VALUES(?, ?, ?, ?, ?)').run(namespace, name, command, description, updated_at)
     return module.exports.getCommand(namespace, name)
   },
@@ -76,10 +75,10 @@ module.exports = {
       }
     }
   },
-  storeSyncLog: () => {
-    const query = db.prepare('INSERT OR REPLACE INTO sync (id, synced, synced_datetime) VALUES(?, ?, ?)').run(1, 1, moment().unix())
+  storeSyncLog: (updated_at =  moment().unix()) => {
+    const query = db.prepare('INSERT OR REPLACE INTO sync (id, synced, synced_datetime) VALUES(?, ?, ?)').run(1, 1, updated_at)
   },
   getSyncStatus: () => {
-    return db.prepare('select synced, synced_datetimed from sync where id = ?').get(1)
+    return db.prepare('select synced, synced_datetime from sync where id = ?').get(1)
   }
 }
