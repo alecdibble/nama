@@ -9,14 +9,17 @@ const cacheDir = mainDir +'/cache';
 module.exports = {
   init: () => {
     if (!fs.existsSync(configDir)) {
-      fs.mkdirSync(configDir, 0755);
+      fs.mkdirSync(configDir, 0700);
     }
     if (!fs.existsSync(mainDir)) {
-      fs.mkdirSync(mainDir, 0755);
+      fs.mkdirSync(mainDir, 0700);
     }
     if (!fs.existsSync(cacheDir)) {
-      fs.mkdirSync(cacheDir, 0755);
+      fs.mkdirSync(cacheDir, 0700);
     }
+  },
+  mainDirExists: () => {
+    return fs.existsSync(mainDir);
   },
   configDir: configDir,
   mainDir: mainDir,

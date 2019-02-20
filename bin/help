@@ -1,0 +1,33 @@
+#!/bin/bash
+
+
+cat << EOF
+
+nama - namespaced aliases
+       Store, quickly access, and organize
+       your aliases. Auto-complete too!
+
+a [-a] [namespace]
+     (-a)            Lists all commands for all namespaces
+     [namespace]     List commands for the namespace
+
+
+a c [namespace]
+     Creates a namespace/folder to organize your aliases
+       Example:     a c utils
+
+a c [namespace] [alias] "[command]"<-Enclosed in quotes
+     Creates an alias in a namespace
+       Example:     a c utils echo_info "echo 'info'"
+
+a [namespace] [alias]
+     Runs your alias
+       Example: a utils echo_info
+
+a rm [namespace] [alias]
+     Deletes an alias in a namespace
+
+
+To see more commands & information, please visit: 
+      https://github.com/alecdibble/nama#reference
+EOF

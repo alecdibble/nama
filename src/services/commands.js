@@ -1,6 +1,7 @@
 const db = require('./db')
 const alert = require('./alert')
 const cache = require('./cache')
+const sync = require('./syncHelper')
 
 let noNameError = `\x1b[31mError\x1b[0m: Please supply a valid command name.
 
@@ -25,7 +26,8 @@ let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't ex
 
 module.exports = { 
   create: (namespace, name, command, description) => {
-    db.updateCommand(namespace, name, command, description)
+    let cmd = db.updateCommand(namespace, name, command, description)
+    sync.syncSendChanges()
     cache.cacheWrite()
   },
 
@@ -33,6 +35,7 @@ module.exports = {
 
     if(db.getCommand(namespace, name)) {
       db.removeCommand(namespace, name)
+      sync.syncRemoveCommand(namespace, name)
       cache.cacheWrite()
     }
     else {

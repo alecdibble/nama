@@ -1,7 +1,7 @@
 module.exports = (alert, option) =>{
   switch(option) {
     case 'json':
-      console.log('echo "' + JSON.stringify(alert)+ '"')
+      console.log("echo '" + JSON.stringify(alert)+ "'")
       break;
 
     case 'run':
@@ -9,6 +9,6 @@ module.exports = (alert, option) =>{
       break;
       
     default:
-      console.log('echo "' + alert+ '"')
+      console.log("echo '" + alert + "'")
   }
 }
