@@ -3,7 +3,7 @@
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
 
-[![](https://tokei.rs/b1/github/alecdibble/nama)](https://github.com/alecdibble/nama).
+[![](https://tokei.rs/b1/github/alecdibble/nama)](https://github.com/alecdibble/nama)
 
 ## About
 
