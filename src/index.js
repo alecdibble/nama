@@ -6,6 +6,7 @@ const sync = require('./services/syncHelper')
 const alert = require('./services/alert')
 const help = require('./services/help')
 const tabcomplete = require('./services/tabcomplete')
+const storage = require('./services/storage')
 
 const { version } = require('../package.json')
 
@@ -14,6 +15,13 @@ module.exports = () => {
   // if(!process.env.BASH_EXPORTED) {
   //   return('ERROR: Bashrc not properly sourced. Please re-run.')
   // }
+
+  if(!storage.mainDirExists()) {
+    alert('\x1b[31mERROR\x1b[0m: Nama not installed!')
+    alert('Please run the following command to install Nama: ')
+    alert('nama-install')
+    return
+  }
 
   const args = minimist(process.argv.slice(2))
 
@@ -46,19 +54,19 @@ module.exports = () => {
     case 'c':
     case 'create':
       if(args._.length == 2) {
-          namespaces.create(args._[1], description)
+          return namespaces.create(args._[1], description)
         } else {
-          commands.create(args._[1], args._[2], args._[3], description)
+          return commands.create(args._[1], args._[2], args._[3], description)
         }
       break
 
     case 'rm':
     case 'delete':
       if(!args._[2]) {
-        namespaces.delete(args._[1])
+        return namespaces.delete(args._[1])
       }
       else if(args._[2]) {
-      commands.delete(args._[1], args._[2])
+      return commands.delete(args._[1], args._[2])
       }
       else {
         alert("Wrong number of arguments supplied")
@@ -68,9 +76,6 @@ module.exports = () => {
     case 'base':
       if(args.a) {
         namespaces.listAll()
-      }
-      else if(args.s) {
-        sync.serializeForSync()
       }
       else {
         namespaces.list()
@@ -98,13 +103,13 @@ module.exports = () => {
         break
       }
       else {
-        commands.run('Default', args._[0])
+        return commands.run('Default', args._[0])
         break
       }
       break
 
     case 'version': 
-      alert(`v${version}`)
+      return alert(`v${version}`)
       break
 
     case 'help':
@@ -120,7 +125,7 @@ module.exports = () => {
         if(args._.length == 1) {
           commands.list(args._[0])
         } else {
-          commands.run(args._[0], args._[1])
+          return commands.run(args._[0], args._[1])
         }
       }
       else {

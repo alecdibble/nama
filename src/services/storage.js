@@ -18,6 +18,9 @@ module.exports = {
       fs.mkdirSync(cacheDir, 0700);
     }
   },
+  mainDirExists: () => {
+    return fs.existsSync(mainDir);
+  },
   configDir: configDir,
   mainDir: mainDir,
   cacheDir: cacheDir
