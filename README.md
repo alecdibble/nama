@@ -11,7 +11,7 @@ An open-source command line utility to supercharge your aliases. Features includ
 
 ## Cloud Sync
 
-Cloud synchronization functionality is now in beta-testing, utilizing `nama-sync` through the AliaSync service. More information can found at the [nama-sync repository](https://github.com/alecdibble/nama-sync).
+Cloud synchronization functionality is now in beta-testing, utilizing `nama-sync` through the AliaSync service. More information can found at the [nama-sync](https://github.com/alecdibble/nama-sync) repository.
 
 ## Compatability
 
@@ -35,7 +35,7 @@ npm install -g nama --unsafe-perm=true
 
 If that still gives permissions issues, please follow [this guide](https://docs.npmjs.com/resolving-eacces-permissions-errors-when-installing-packages-globally) to fixing npm permissions issues. You should not need `sudo` to install this.
 
-## Installing on Ubuntu
+### Installing on Ubuntu
 
 ```
 sudo apt-get install build-essential
@@ -129,7 +129,7 @@ You can also use `nama` in the place of `a` for any command above.
 
 | Date | Version | Change Description |
 | --- | --- | -- |
-| 2/14/2019 | 0.7.0 | Integrated with nama-sync |
+| 2/19/2019 | 0.7.0 | Integrated with nama-sync |
 | 2/8/2019| 0.6.2 | Changed the way installation works |
 | 2/6/2019| 0.6.1 | Fixed small bug introduced during the merge |
 | 2/5/2019| 0.6.0 | Sped up autocomplete functionality significantly |
