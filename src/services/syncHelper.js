@@ -17,7 +17,7 @@ module.exports = {
   },
   syncSendChanges: () => {
     if(shell.which('nama-sync')) {
-      alert("Syncing changes with the AliasSync server")
+      alert("Syncing changes with the AliaSync server")
       shell.exec('nama-sync schemaMerge ' + Buffer.from(JSON.stringify(db.serializeDB())).toString('base64') , {silent:true}, function(code, stdout, stderr) {
         if(code == 0) {
           return alert('Sync sucessful!')
@@ -29,7 +29,7 @@ module.exports = {
   },
   syncRemoveNamespace: (namespace) => {
     if(shell.which('nama-sync')) {
-      alert("Syncing changes with the AliasSync server")
+      alert("Syncing changes with the AliaSync server")
       shell.exec('nama-sync namespace remove ' + namespace , {silent:true}, function(code, stdout, stderr) {
         if(code == 0) {
           return alert('Sync sucessful!')
@@ -40,7 +40,7 @@ module.exports = {
   },
   syncRemoveCommand: (namespace, commandName) => {
     if(shell.which('nama-sync')) {
-      alert("Syncing changes with the AliasSync server")
+      alert("Syncing changes with the AliaSync server")
       shell.exec('nama-sync command remove ' + namespace + ' ' + commandName, {silent:true}, function(code, stdout, stderr) {
         if(code == 0) {
           return alert('Sync sucessful')
@@ -52,7 +52,7 @@ module.exports = {
   syncStatus: () => {
     if(shell.which('nama-sync')) {
       if(db.getSyncStatus()['synced_datetime']) {
-        alert("\x1b[4mAliasSync\x1b[0m: (nama-sync) last synced:\n" + moment.unix(db.getSyncStatus()['synced_datetime']).format("dddd, MMMM Do YYYY, h:mm:ss a"))
+        alert("\x1b[4mAliaSync\x1b[0m: (nama-sync) last synced:\n" + moment.unix(db.getSyncStatus()['synced_datetime']).format("dddd, MMMM Do YYYY, h:mm:ss a"))
       }
     }
   }
