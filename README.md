@@ -15,7 +15,7 @@ Cloud synchronization functionality is now in beta-testing, utilizing `nama-sync
 
 ## Compatability
 
-Currently only supports the bash shell. Other shells are going to be tested & implemented in the future. Supports MacOS.
+Currently only supports the bash shell. Other shells are going to be tested & implemented in the future.
 
 ## Installation
 
