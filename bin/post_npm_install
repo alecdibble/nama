@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo -e "\x1b[31mBREAKING CHANGE IN NEW VERSION!\x1b[0m"
+echo -e "The \x1b[31ma\x1b[0m command has been replaced by \x1b[31mna\x1b[0m to help mitigate potential problems with other *nix commands."

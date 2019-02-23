@@ -67,23 +67,23 @@ echo '[ -r ~/.bashrc ] && . ~/.bashrc' >> ~/.bash_profile
 
 ### List all namespaces
 
-`a`
+`na`
 
 ### Create & deleting namespaces
 
 To create a namespace:
-`a c [namespace-name]` or `a create [namespace-name]`
+`na c [namespace-name]` or `na create [namespace-name]`
 
 To delete an existing namespace:
-`a rm [namespace-name]` or `a delete [namespace-name]`
+`na rm [namespace-name]` or `na delete [namespace-name]`
 
 ### Creating a new alias in a namespace
 
-`a c [namespace] [alias] [command]` or `a create [namespace] [alias] [command]`
+`na c [namespace] [alias] [command]` or `na create [namespace] [alias] [command]`
 
 ### Running an alias
 
-`a [namespace] [alias]`
+`na [namespace] [alias]`
 
 ### Reference
 
@@ -92,32 +92,32 @@ nama - namespaced aliases
        Store, quickly access, and organize
        your aliases. Auto-complete too!
 
-a [-a] [namespace]
+na [-a] [namespace]
      (-a)            Lists all commands for all namespaces
      [namespace]     List commands for the namespace
 
 
-a c [namespace]
-a create [namespace]
+na c [namespace]
+na create [namespace]
      Creates a namespace/folder to organize your aliases
-       Example:     a c utils
+       Example:     na c utils
 
-a c [namespace] [alias] "[command]"<-Enclosed in quotes
-a create [namespace] [alias] "[command]"<-Enclosed in quotes
+na c [namespace] [alias] "[command]"<-Enclosed in quotes
+na create [namespace] [alias] "[command]"<-Enclosed in quotes
      Creates an alias in a namespace
-       Example:     a c utils echo_info "echo 'info'"
+       Example:     na c utils echo_info "echo 'info'"
 
-a [namespace] [alias]
+na [namespace] [alias]
      Runs your alias
        Example: a utils echo_info
 
-a rm [namespace] [alias]
-a delete [namespace] [alias]
+na rm [namespace] [alias]
+na delete [namespace] [alias]
      Deletes an alias in a namespace
 
 ```
 
-You can also use `nama` in the place of `a` for any command above.
+You can also use `nama` in the place of `na` for any command above.
 
 ## Limitations
 
@@ -129,6 +129,7 @@ You can also use `nama` in the place of `a` for any command above.
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 2/23/2019 | 0.8.0 | Changed `a` command to `na` to help prevent unintended errors with other commands |
 | 2/19/2019 | 0.7.0 | Integrated with nama-sync |
 | 2/8/2019| 0.6.2 | Changed the way installation works |
 | 2/6/2019| 0.6.1 | Fixed small bug introduced during the merge |
