@@ -32,8 +32,6 @@
   },
   "bin": {
     "nama": "bin/nama",
-    "na": "bin/nama",
-    "nad": "bin/nama_default",
     "nama-install": "bin/install",
     "nama-sync-helper": "bin/sync"
   },

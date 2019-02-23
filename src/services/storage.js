@@ -1,5 +1,4 @@
 const fs = require('fs');
-const db = require('./db')
 const homeDir = require('os').homedir();
 
 const configDir = homeDir +'/.config';

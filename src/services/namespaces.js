@@ -16,7 +16,7 @@ Example:
 module.exports = { 
   create: (namespace, description) => {
     if(db.getNamespace(namespace) && !description) {
-      return alert('Error: '+namespace+' already exists')
+      return alert('\x1b[31mERROR\x1b[0m: '+namespace+' already exists')
     }
     db.updateNamespace(namespace, description)
     syncHelper.syncSendChanges();
@@ -35,7 +35,7 @@ module.exports = {
     let currentNamespaces = db.getAllNamespaces()
 
     if(currentNamespaces == undefined || currentNamespaces.length < 1) {
-      return alert('Error: No namespaces have been created')
+      return alert('\x1b[31mERROR\x1b[0m: No namespaces have been created')
     }
 
     alert('\x1b[4mNamespaces\x1b[0m')
@@ -48,7 +48,7 @@ module.exports = {
     let currentNamespaces = db.getAllNamespaces()
 
     if(currentNamespaces == undefined || currentNamespaces.length < 1) {
-      return alert('Error: No namespaces have been created')
+      return alert('\x1b[31mERROR\x1b[0m: No namespaces have been created')
     }
 
     for(var i in currentNamespaces) {

@@ -1,12 +1,20 @@
 const minimist = require('minimist')
+const storage = require('./services/storage')
+const alert = require('./services/alert')
+const help = require('./services/help')
+
+if(!storage.mainDirExists()) {
+  alert('\x1b[31mERROR\x1b[0m: Nama not installed!')
+  alert('Please run the following command to install Nama: ')
+  alert('nama-install')
+  return
+}
 
 const namespaces = require('./services/namespaces')
 const commands = require('./services/commands')
 const sync = require('./services/syncHelper')
-const alert = require('./services/alert')
-const help = require('./services/help')
 const tabcomplete = require('./services/tabcomplete')
-const storage = require('./services/storage')
+
 
 const { version } = require('../package.json')
 
@@ -15,13 +23,6 @@ module.exports = () => {
   // if(!process.env.BASH_EXPORTED) {
   //   return('ERROR: Bashrc not properly sourced. Please re-run.')
   // }
-
-  if(!storage.mainDirExists()) {
-    alert('\x1b[31mERROR\x1b[0m: Nama not installed!')
-    alert('Please run the following command to install Nama: ')
-    alert('nama-install')
-    return
-  }
 
   const args = minimist(process.argv.slice(2))
 
@@ -69,7 +70,7 @@ module.exports = () => {
       return commands.delete(args._[1], args._[2])
       }
       else {
-        alert("Wrong number of arguments supplied")
+        alert("\x1b[31mERROR\x1b[0m: Wrong number of arguments supplied")
       }
       break
 
@@ -129,7 +130,7 @@ module.exports = () => {
         }
       }
       else {
-        alert(`"${cmd}" is not a valid command!`)
+        alert(`\x1b[31mERROR\x1b[0m: "${cmd}" is not a valid command!`)
       }
   }
   sync.syncStatus()
