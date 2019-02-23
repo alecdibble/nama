@@ -129,6 +129,7 @@ You can also use `nama` in the place of `na` for any command above.
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 2/23/2019 | 0.8.1 | Fixed bug with sqlite table init |
 | 2/23/2019 | 0.8.0 | Changed `a` command to `na` to help prevent unintended errors with other commands |
 | 2/19/2019 | 0.7.0 | Integrated with nama-sync |
 | 2/8/2019| 0.6.2 | Changed the way installation works |
