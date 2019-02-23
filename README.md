@@ -5,7 +5,9 @@ Namespaced Aliases: organize and easily find aliases using autocomplete & namesp
 
 [![npm](https://img.shields.io/npm/v/nama.svg)](https://www.npmjs.com/package/nama)
 [![npm](https://img.shields.io/npm/l/nama.svg)](https://github.com/faressoft/nama/blob/master/LICENSE)
+[![Join the chat at https://gitter.im/namespaced-aliases/community](https://badges.gitter.im/namespaced-aliases/community.svg)](https://gitter.im/namespaced-aliases/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 [![](https://tokei.rs/b1/github/alecdibble/nama)](https://github.com/alecdibble/nama)
+
 
 ## About
 
