@@ -26,7 +26,7 @@ ttt.installMultiple([
   'nama'
 )
 .then(() => {
-  shell.exec('echo "na() { if [[ \'$1\' == \"completion\" ]]; then nama $@; else . nama $@; fi }" >> ~/.bashrc' , {silent:true}, function(code, stdout, stderr) {
+  shell.exec("echo 'na() { if [[ \$1 == \"completion\" ]]; then nama $@; else . nama $@; fi }' >> ~/.bashrc" , {silent:true}, function(code, stdout, stderr) {
     if(code == 0) {
       return console.log('Installation completed!')
     }
