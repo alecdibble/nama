@@ -13,7 +13,7 @@ const db = new Database(mainDir + '/nama.db')
 module.exports = {
   init: () => {
     db.prepare('CREATE TABLE IF NOT EXISTS namespaces (namespace TEXT UNIQUE PRIMARY KEY, description TEXT, team_id INTEGER, team_name TEXT)').run()
-    db.prepare('CREATE TABLE IF NOT EXISTS commands (namespace TEXT, name TEXT, command TEXT, description TEXT, permission_level INT, updated_at INT, PRIMARY_KEY(namespace, command))').run()
+    db.prepare('CREATE TABLE IF NOT EXISTS commands (namespace TEXT, name TEXT, command TEXT, description TEXT, permission_level INT, updated_at INT, PRIMARY KEY(namespace, command))').run()
     db.prepare('CREATE TABLE IF NOT EXISTS sync (id INTEGER PRIMARY KEY NOT NULL, synced INTEGER DEFAULT 0, synced_datetime INTEGER DEFAULT 0)').run()    
   },
 
