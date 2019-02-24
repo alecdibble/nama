@@ -15,7 +15,6 @@ cachePath=~/.config/nama/cache/
 
 if [[ $1 == 'completion' || $2 == 'completion' || $3 == 'completion' ]]
 then
-   echo "$#"
     if [ $# -eq 5 ]
     then
       source $cachePath$4
@@ -23,7 +22,7 @@ then
       for var in "${!_nama_command_@}"; do
         sub1=${var:14}
         concat_var+=" ${sub1%:*}"
-        #compgen -W "${concat_var}" $5
+        compgen -W "${concat_var}" $5
       done
     elif [ $# -eq 6 ]
     then
@@ -34,7 +33,7 @@ then
       do
         concat_var+=" $(basename "$file")"
       done
-      #compgen -W "${concat_var}" $4
+      compgen -W "${concat_var}" $4
     fi
 elif [[ $1 == '-h' ]]
 then
