@@ -13,20 +13,36 @@ Example:
   - Will create a namespace with the name 'test'
 `;
 
+let checkInvalidName = (namespaceName) => {
+  if(namespaceName.includes('-')) {
+    return '-'
+  }
+  if(namespaceName.includes('!')) {
+    return '!'
+  }
+  if(namespaceName.includes('/')) {
+    return '/'
+  }
+  return false
+}
+
 module.exports = { 
   create: (namespace, description) => {
     if(db.getNamespace(namespace) && !description) {
-      return alert('\x1b[31mERROR\x1b[0m: '+namespace+' already exists')
+      return alert(`\x1b[31mERROR\x1b[0m: `+namespace+` already exists`)
+    }
+    if(checkInvalidName(namespace)) {
+      return alert(`\x1b[31mERROR\x1b[0m: Invalid character (`+checkInvalidName(namespace)+`) in namespace name. Cannot save. Please try again.`)
     }
     db.updateNamespace(namespace, description)
     syncHelper.syncSendChanges();
     cache.cacheWrite()
-    module.exports.list()
+    return alert('\u001b[32mSuccess\x1b[0m: Namespace created.')
   },
 
   delete: (namespace) => {
     db.deleteNamespace(namespace)
-    alert(namespace + ' namespace has been deleted')
+    alert('\u001b[32mSuccess\x1b[0m: ' + namespace + ' namespace has been deleted')
     cache.cacheWrite()
     syncHelper.syncRemoveNamespace(namespace);
   },

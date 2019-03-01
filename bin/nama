@@ -22,8 +22,8 @@ then
       for var in "${!_nama_command_@}"; do
         sub1=${var:14}
         concat_var+=" ${sub1%:*}"
-        compgen -W "${concat_var}" $5
       done
+      compgen -W "${concat_var}" $5
     elif [ $# -eq 6 ]
     then
       echo " "

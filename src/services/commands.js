@@ -24,11 +24,36 @@ Example:
 
 let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't exist`;
 
+let consoleCommandWarning = (commandString) => {
+  if(commandString.includes("cd ") || commandString.includes("export ")) {
+    alert("\x1b[31mWarning\x1b[0m: This command appears to change current console. Use the \u001b[36mnac\x1b[0m command to support these kinds of commands.")
+    alert('Please visit github.com/alecdibble/nama for more information.')
+  }
+}
+
+let checkInvalidName = (commandName) => {
+  if(commandName.includes('-')) {
+    return '-'
+  }
+  if(commandName.includes('!')) {
+    return '!'
+  }
+  if(commandName.includes('/')) {
+    return '/'
+  }
+  return false
+}
+
 module.exports = { 
   create: (namespace, name, command, description) => {
+    if(checkInvalidName(name)) {
+      return alert(`\x1b[31mError\x1b[0m: Invalid character (`+checkInvalidName(name)+`) in command name. Cannot save. Please try again.`)
+    }
     let cmd = db.updateCommand(namespace, name, command, description)
     sync.syncSendChanges()
     cache.cacheWrite()
+    consoleCommandWarning(command)
+    return alert('\u001b[32mSuccess\x1b[0m: Command created.')
   },
 
   delete: (namespace, name) => {

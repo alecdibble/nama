@@ -89,6 +89,18 @@ To delete an existing namespace:
 
 `na [namespace] [alias]`
 
+## Running an alias in the current console
+
+If you want to run a command like `cd` that will affect your current console, you must use the `nac` command. Currently, the mechanism that allows the `nac` command to work makes the autocomplete situation intermittent. 
+
+```
+na c test1 gohome 'cd ~/'
+nac test1 gohome
+```
+
+
+Please file an issue or PR if you find a potential solution to this problem.
+
 ### Reference
 
 ```
@@ -115,6 +127,13 @@ na [namespace] [alias]
      Runs your alias
        Example: a utils echo_info
 
+nac [namespace] [alias]
+     Runs your alias in the current console
+     Lets commands like cd work correctly
+
+     Note: autocomplete work intermittently for commands
+     in this mode
+
 na rm [namespace] [alias]
 na delete [namespace] [alias]
      Deletes an alias in a namespace
@@ -133,6 +152,7 @@ You can also use `nama` in the place of `na` for any command above.
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 3/1/2019 | 0.9.0 | Added nac command to handle commands like cd, added warning, removed old na alias, added invalid character validations |
 | 2/23/2019 | 0.8.1 | Fixed issue with running commands in current shell, Fixed bug with sqlite table init |
 | 2/23/2019 | 0.8.0 | Changed `a` command to `na` to help prevent unintended errors with other commands |
 | 2/19/2019 | 0.7.0 | Integrated with nama-sync |

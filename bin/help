@@ -24,6 +24,13 @@ na [namespace] [alias]
      Runs your alias
        Example: na utils echo_info
 
+nac [namespace] [alias]
+     Runs your alias in the current console
+     Lets commands like cd work correctly
+
+     Note: autocomplete work intermittently for commands
+     in this mode
+
 na rm [namespace] [alias]
      Deletes an alias in a namespace
 
