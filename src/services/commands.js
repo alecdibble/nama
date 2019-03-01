@@ -25,7 +25,7 @@ Example:
 let commandDoesntExistError = `\x1b[31mError\x1b[0m: Supplied command doesn't exist`;
 
 let consoleCommandWarning = (commandString) => {
-  if(commandString.includes("cd ") || commandString.includes("export ")) {
+  if(commandString.includes && (commandString.includes("cd ") || commandString.includes("export "))) {
     alert("\x1b[31mWarning\x1b[0m: This command appears to change current console. Use the \u001b[36mnac\x1b[0m command to support these kinds of commands.")
     alert('Please visit github.com/alecdibble/nama for more information.')
   }
@@ -46,6 +46,9 @@ let checkInvalidName = (commandName) => {
 
 module.exports = { 
   create: (namespace, name, command, description) => {
+    if(db.getCommand(namespace, name)) {
+      return alert(`\x1b[31mERROR\x1b[0m: `+name+` in the `+namespace+` namespace already exists.`)
+    }
     if(checkInvalidName(name)) {
       return alert(`\x1b[31mError\x1b[0m: Invalid character (`+checkInvalidName(name)+`) in command name. Cannot save. Please try again.`)
     }
@@ -53,7 +56,7 @@ module.exports = {
     sync.syncSendChanges()
     cache.cacheWrite()
     consoleCommandWarning(command)
-    return alert('\u001b[32mSuccess\x1b[0m: Command created.')
+    return alert(`\u001b[32mSuccess\x1b[0m: Command created.`)
   },
 
   delete: (namespace, name) => {
@@ -62,6 +65,7 @@ module.exports = {
       db.removeCommand(namespace, name)
       sync.syncRemoveCommand(namespace, name)
       cache.cacheWrite()
+      alert('\u001b[32mSuccess\x1b[0m: ' + name + ' command has been deleted.')
     }
     else {
       alert(`\x1b[31mERROR\x1b[0m: Command not found in ${namespace}`)

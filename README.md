@@ -148,10 +148,11 @@ You can also use `nama` in the place of `na` for any command above.
 
   Current, you cannot use the namespace `completion` due to the mechanics of the autocompletion script. 
 
-## ChangeLog
+## Change Log
 
 | Date | Version | Change Description |
 | --- | --- | -- |
+| 3/1/2019 | 0.9.1 | More validations, fixed bashrc double line, updated gif |
 | 3/1/2019 | 0.9.0 | Added nac command to handle commands like cd, added warning, removed old na alias, added invalid character validations |
 | 2/23/2019 | 0.8.1 | Fixed issue with running commands in current shell, Fixed bug with sqlite table init |
 | 2/23/2019 | 0.8.0 | Changed `a` command to `na` to help prevent unintended errors with other commands |

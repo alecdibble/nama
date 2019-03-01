@@ -9,17 +9,9 @@ const db = require('./services/db')
 
 console.log("Installing autcompletion script for main program: ")
 ttt.installMultiple([
-    // {
-    //   name: 'a',
-    //   completer: 'a',
-    // },
     {
-      name: 'nama',
-      completer: 'nama',
-    },
-    {
-      name: 'ad',
-      completer: 'ad',
+      name: 'na',
+      completer: 'na',
     }
   ],
   'bash',
