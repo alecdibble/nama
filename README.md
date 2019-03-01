@@ -13,9 +13,6 @@ Namespaced Aliases: organize and easily find aliases using autocomplete & namesp
 
 An open-source command line utility to supercharge your aliases. Features include alias namespacing & tab autocomplete. By having easy access to all of your aliases, you can speed up your development or devOps workflow. 
 
-## Cloud Sync
-
-Cloud synchronization functionality is now in beta-testing, utilizing `nama-sync` through the AliaSync service. More information can found at the [nama-sync](https://github.com/alecdibble/nama-sync) repository.
 
 ## Compatability
 
@@ -63,6 +60,18 @@ You can easily add it by running this command:
 ```
 echo '[ -r ~/.bashrc ] && . ~/.bashrc' >> ~/.bash_profile
 ```
+
+
+## Cloud Sync
+
+AliaSync is a service I created to sync & store nama aliases in the cloud. To create a free AliaSync account & enable nama sync:
+
+```
+npm install nama-sync
+nama-sync
+```
+
+More information can found at the [nama-sync](https://github.com/alecdibble/nama-sync) repository.
 
 
 ## Usage
