@@ -1,5 +1,7 @@
 <img src="https://raw.githubusercontent.com/alecdibble/nama/master/docs/nama.png" width="200">
 
+# Deprecated/Not Maintained
+
 # nama
 Namespaced Aliases: organize and easily find aliases using autocomplete & namespacing
 
